@@ -1,0 +1,12 @@
+{
+  "name": "hmsk-rate-calculator",
+  "version": "1.0.0",
+  "description": "Freelancer hourly-rate calculator for Germany (2026): tax, health insurance, pension, holidays.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/",
+    "start": "python3 -m http.server 8080 --directory public"
+  }
+}

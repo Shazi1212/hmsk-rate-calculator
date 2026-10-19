@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate Calculator: freelance hourly rate for Germany (2026)</title>
+<meta name="description" content="Minimum hourly and day rate for freelancers in Germany with 2026 income tax, health and care insurance, pension, public holidays and business costs. Runs in your browser.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0F0C">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/MartianMono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="app.css?v=1">
+</head>
+<body>
+
+<nav class="strip" aria-label="Site">
+  <div class="in">
+    <a class="home" id="lnkHome" href="/tools/rate-calculator/" data-t="back">← hmsk.life</a>
+    <span class="sp"></span>
+    <button type="button" class="lang" id="langBtn" data-t="langSwitch">DE</button>
+    <a id="lnkImprint" href="/imprint/" data-t="imprint">Imprint</a>
+    <a id="lnkPrivacy" href="/privacy/" data-t="privacy">Privacy</a>
+  </div>
+</nav>
+
+<header class="head wrap">
+  <p class="cmd"><span class="ps">$</span> rate-calculator --de --year <span id="cmdYear">2026</span></p>
+  <h1 data-t="h1">What hourly rate do you need as a freelancer in Germany?</h1>
+  <p class="sub" data-t="sub"></p>
+</header>
+
+<main class="wrap layout">
+  <form id="form" class="form" novalidate autocomplete="off">
+
+    <fieldset>
+      <legend data-t="sIncome">--income</legend>
+      <label for="target" data-t="target">Net income you want to live on</label>
+      <div class="row">
+        <div class="money"><input id="target" name="target" type="number" inputmode="decimal" min="0" step="50"><span>€</span></div>
+        <select id="period" name="period" aria-label="Period">
+          <option value="month" data-t="perMonth">per month</option>
+          <option value="year" data-t="perYear">per year</option>
+        </select>
+      </div>
+      <p class="hint" data-t="targetHint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sTime">--time</legend>
+      <div class="grid2">
+        <div><label for="year" data-t="year">Year</label><select id="year" name="year"></select></div>
+        <div><label for="state" data-t="state">Bundesland</label><select id="state" name="state"></select></div>
+      </div>
+      <p class="hint" id="wdInfo"></p>
+      <details class="hol"><summary data-t="showHolidays">Show public holidays</summary><ul id="holList"></ul></details>
+      <div class="grid3">
+        <div><label for="vacation" data-t="vacation">Vacation days</label><input id="vacation" name="vacation" type="number" inputmode="numeric" min="0" max="200"></div>
+        <div><label for="sick" data-t="sick">Sick days</label><input id="sick" name="sick" type="number" inputmode="numeric" min="0" max="200"></div>
+        <div><label for="training" data-t="training">Training days</label><input id="training" name="training" type="number" inputmode="numeric" min="0" max="200"></div>
+      </div>
+      <div class="grid2">
+        <div><label for="hoursPerDay" data-t="hoursPerDay">Working hours per day</label><input id="hoursPerDay" name="hoursPerDay" type="number" inputmode="decimal" min="1" max="16" step="0.5"></div>
+        <div><label for="nonBillable" data-t="nonBillable">Non-billable share (%)</label><input id="nonBillable" name="nonBillable" type="number" inputmode="numeric" min="0" max="90" step="1"></div>
+      </div>
+      <p class="hint" data-t="nonBillableHint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sCosts">--costs</legend>
+      <p class="hint top" data-t="costsHint"></p>
+      <div class="cost"><label for="c-software" data-t="cSoftware">Software</label><div class="money"><input id="c-software" data-cost="software" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
+      <div class="cost"><label for="c-hardware" data-t="cHardware">Hardware</label><div class="money"><input id="c-hardware" data-cost="hardware" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
+      <div class="cost"><label for="c-office" data-t="cOffice">Office</label><div class="money"><input id="c-office" data-cost="office" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
+      <div class="cost"><label for="c-insurance" data-t="cInsurance">Insurance</label><div class="money"><input id="c-insurance" data-cost="insurance" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
+      <div class="cost"><label for="c-other" data-t="cOther">Other</label><div class="money"><input id="c-other" data-cost="other" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
+      <p class="hint" id="costsTotal"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sHealth">--health</legend>
+      <label class="chk"><input type="checkbox" id="ksk" name="ksk"> <span data-t="ksk"></span></label>
+      <p class="hint" data-t="kskHint"></p>
+      <div role="radiogroup" aria-labelledby="healthLbl" class="radios" id="healthGroup">
+        <span id="healthLbl" class="lbl" data-t="health">Health insurance</span>
+        <label class="rad"><input type="radio" name="health" value="gkv"> <span data-t="gkv"></span></label>
+        <label class="rad"><input type="radio" name="health" value="pkv"> <span data-t="pkv"></span></label>
+      </div>
+      <div class="gkv-only">
+        <label for="krankengeld" data-t="krankengeld"></label>
+        <select id="krankengeld" name="krankengeld">
+          <option value="1" data-t="krankengeldOn"></option>
+          <option value="0" data-t="krankengeldOff"></option>
+        </select>
+        <div class="grid2">
+          <div><label for="zusatz" data-t="zusatz">Zusatzbeitrag (%)</label><input id="zusatz" name="zusatz" type="number" inputmode="decimal" min="0" max="10" step="0.01"></div>
+          <div><label for="children" data-t="children">Children</label><select id="children" name="children"></select></div>
+        </div>
+        <p class="hint"><span data-t="zusatzHint"></span> <span data-t="childrenHint"></span></p>
+      </div>
+      <div class="pkv-only">
+        <label for="pkvMonth" data-t="pkvMonth">Private health insurance per month</label>
+        <div class="money"><input id="pkvMonth" name="pkvMonth" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sPension">--pension</legend>
+      <div class="no-ksk">
+        <label for="pension" data-t="pension">Pension provision</label>
+        <select id="pension" name="pension">
+          <option value="none" data-t="pNone"></option>
+          <option value="drv" data-t="pDrv"></option>
+          <option value="regel" data-t="pRegel"></option>
+          <option value="custom" data-t="pCustom"></option>
+        </select>
+        <div class="custom-only">
+          <label for="pensionCustom" data-t="pensionCustom">Monthly pension provision</label>
+          <div class="money"><input id="pensionCustom" name="pensionCustom" type="number" inputmode="decimal" min="0" step="25"><span>€</span></div>
+        </div>
+        <p class="hint" data-t="pensionHint"></p>
+      </div>
+      <p class="hint ksk-only" data-t="pensionKsk"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-t="sTax">--tax</legend>
+      <label for="trade" data-t="trade">Business type</label>
+      <select id="trade" name="trade">
+        <option value="0" data-t="freelance"></option>
+        <option value="1" data-t="gewerbe"></option>
+      </select>
+      <p class="hint" data-t="tradeHint"></p>
+      <div class="trade-only">
+        <label for="hebesatz" data-t="hebesatz">Hebesatz (%)</label>
+        <input id="hebesatz" name="hebesatz" type="number" inputmode="numeric" min="200" max="900" step="5">
+        <p class="hint" data-t="hebesatzHint"></p>
+      </div>
+      <label class="chk"><input type="checkbox" id="married" name="married"> <span data-t="married"></span></label>
+      <label class="chk"><input type="checkbox" id="church" name="church"> <span data-t="church"></span></label>
+    </fieldset>
+  </form>
+
+  <section class="result" id="result" aria-live="polite" aria-labelledby="rTitle">
+    <div class="term">
+      <div class="term__bar"><i></i><i></i><i></i><span id="rTitle" data-t="rTitle">$ rate --min</span></div>
+      <div class="term__body">
+        <p class="err" id="err" hidden></p>
+        <div id="out">
+          <p class="lbl" data-t="rateLabel">Minimum hourly rate</p>
+          <p class="big"><span id="rate">0</span> <small data-t="perHour">/ h</small></p>
+          <p class="vat"><span data-t="withVat">with 19 % VAT</span>: <b id="rateGross"></b></p>
+          <dl class="kv">
+            <div><dt data-t="dayRate">Day rate</dt><dd><b id="dayRate"></b><small id="dayRateGross"></small></dd></div>
+            <div><dt data-t="billable">Billable hours per year</dt><dd><b id="billable"></b></dd></div>
+            <div><dt data-t="revenue">Revenue per year</dt><dd><b id="revenue"></b></dd></div>
+          </dl>
+
+          <h2 class="h3" data-t="breakdownTitle">Where every euro of the rate goes</h2>
+          <div class="bar" id="bar" role="img"></div>
+          <ul class="legend" id="legend"></ul>
+
+          <p class="note" id="sbNote"></p>
+
+          <h2 class="h3"><label for="whatIf"><span data-t="whatIfTitle">What if you charge</span> <b id="whatIfRate"></b> <span data-t="perHour">/ h</span>?</label></h2>
+          <input type="range" id="whatIf" min="10" max="300" step="1">
+          <p class="whatif" id="whatIfOut"></p>
+
+          <div class="cta">
+            <a class="btn btn--amber" id="lnkInvoice" href="/tools/invoice/" data-t="nextInvoice">Now write the invoice for free →</a>
+            <a class="btn btn--ghost" id="lnkNotify" href="/?topic=rate-calculator#contact" data-t="notify">Get notified when the 2027 figures are in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <details class="year" open>
+      <summary data-t="yearTitle">Your year at this rate</summary>
+      <table class="tbl" id="yearTbl"><tbody></tbody></table>
+    </details>
+
+    <div class="tools">
+      <button type="button" class="btn btn--ghost sm" id="shareBtn" data-t="share">Copy share link</button>
+      <button type="button" class="btn btn--ghost sm" id="printBtn" data-t="print">Print</button>
+      <button type="button" class="btn btn--ghost sm" id="resetBtn" data-t="reset">Reset</button>
+    </div>
+  </section>
+</main>
+
+<section class="wrap sources" aria-labelledby="srcTitle">
+  <h2 id="srcTitle" class="h2" data-t="srcTitle">$ cat sources-and-assumptions.md</h2>
+  <p class="disclaimer" data-t="disclaimer"></p>
+  <ul id="assumptions"></ul>
+  <h3 class="h3" data-t="srcList">Sources</h3>
+  <ul id="sources"></ul>
+</section>
+
+<footer class="wrap foot">
+  <p>MIT · <a id="lnkHome2" href="/tools/rate-calculator/">hmsk.life</a></p>
+</footer>
+
+<script type="module" src="app.js?v=1"></script>
+</body>
+</html>
