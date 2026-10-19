@@ -154,7 +154,7 @@ details.year summary { cursor: pointer; font: 600 13px/1.6 var(--mono); color: v
 
 @media (max-width: 420px) {
   .strip .in { gap: var(--sm); }
-  .grid3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--xs); }
+  .grid3 { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .cost { grid-template-columns: minmax(0, 1fr) 110px; }
   fieldset { padding: var(--sm); }
   details.hol ul { columns: 1; }
