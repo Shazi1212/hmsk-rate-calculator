@@ -83,7 +83,7 @@ function applyTexts() {
   $('#lnkImprint').href = base + (de ? '/impressum/' : '/imprint/');
   $('#lnkPrivacy').href = base + (de ? '/datenschutz/' : '/privacy/');
   $('#lnkInvoice').href = base + (de ? '/de/tools/invoice/' : '/tools/invoice/');
-  $('#lnkNotify').href = base + (de ? '/de/?topic=rate-calculator#contact' : '/?topic=rate-calculator#contact');
+  $('#lnkNotify').href = base + (de ? '/de/newsletter/?topic=rate-calculator' : '/subscribe/?topic=rate-calculator');
 
   $('#year').innerHTML = YEARS.map(y => `<option value="${y}">${y}</option>`).join('');
   $('#state').innerHTML = Object.entries(STATES).map(([k, n]) => `<option value="${k}">${esc(n)}</option>`).join('');
