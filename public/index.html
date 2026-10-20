@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rate Calculator: freelance hourly rate for Germany (2026)</title>
 <meta name="description" content="Minimum hourly and day rate for freelancers in Germany with 2026 income tax, health and care insurance, pension, public holidays and business costs. Runs in your browser.">
-<meta name="theme-color" content="#0B0F0C">
+<meta name="theme-color" content="#EFF1F2">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/MartianMono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="app.css?v=2">
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="letterpress.css?v=2">
+<link rel="stylesheet" href="app.css?v=3">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 </nav>
 
 <header class="head wrap">
-  <p class="cmd"><span class="ps">$</span> rate-calculator --de --year <span id="cmdYear">2026</span></p>
+  <p class="eyebrow">Rate Calculator<span id="cmdYear" hidden>2026</span></p>
   <h1 data-t="h1">What hourly rate do you need as a freelancer in Germany?</h1>
   <p class="sub" data-t="sub"></p>
 </header>
@@ -32,7 +33,7 @@
   <form id="form" class="form" novalidate autocomplete="off">
 
     <fieldset>
-      <legend data-t="sIncome">--income</legend>
+      <legend data-t="sIncome">Income</legend>
       <label for="target" data-t="target">Net income you want to live on</label>
       <div class="row">
         <div class="money"><input id="target" name="target" type="number" inputmode="decimal" min="0" step="50"><span>€</span></div>
@@ -45,7 +46,7 @@
     </fieldset>
 
     <fieldset>
-      <legend data-t="sTime">--time</legend>
+      <legend data-t="sTime">Time</legend>
       <div class="grid2">
         <div><label for="year" data-t="year">Year</label><select id="year" name="year"></select></div>
         <div><label for="state" data-t="state">Bundesland</label><select id="state" name="state"></select></div>
@@ -65,7 +66,7 @@
     </fieldset>
 
     <fieldset>
-      <legend data-t="sCosts">--costs</legend>
+      <legend data-t="sCosts">Costs</legend>
       <p class="hint top" data-t="costsHint"></p>
       <div class="cost"><label for="c-software" data-t="cSoftware">Software</label><div class="money"><input id="c-software" data-cost="software" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
       <div class="cost"><label for="c-hardware" data-t="cHardware">Hardware</label><div class="money"><input id="c-hardware" data-cost="hardware" type="number" inputmode="decimal" min="0" step="10"><span>€</span></div></div>
@@ -76,7 +77,7 @@
     </fieldset>
 
     <fieldset>
-      <legend data-t="sHealth">--health</legend>
+      <legend data-t="sHealth">Health insurance</legend>
       <label class="chk"><input type="checkbox" id="ksk" name="ksk"> <span data-t="ksk"></span></label>
       <p class="hint" data-t="kskHint"></p>
       <div role="radiogroup" aria-labelledby="healthLbl" class="radios" id="healthGroup">
@@ -103,7 +104,7 @@
     </fieldset>
 
     <fieldset>
-      <legend data-t="sPension">--pension</legend>
+      <legend data-t="sPension">Pension</legend>
       <div class="no-ksk">
         <label for="pension" data-t="pension">Pension provision</label>
         <select id="pension" name="pension">
@@ -122,7 +123,7 @@
     </fieldset>
 
     <fieldset>
-      <legend data-t="sTax">--tax</legend>
+      <legend data-t="sTax">Tax</legend>
       <label for="trade" data-t="trade">Business type</label>
       <select id="trade" name="trade">
         <option value="0" data-t="freelance"></option>
@@ -141,7 +142,7 @@
 
   <section class="result" id="result" aria-live="polite" aria-labelledby="rTitle">
     <div class="term">
-      <div class="term__bar"><i></i><i></i><i></i><span id="rTitle" data-t="rTitle">$ rate --min</span></div>
+      <div class="term__bar"><span id="rTitle" data-t="rTitle">Your minimum rate</span></div>
       <div class="term__body">
         <p class="err" id="err" hidden></p>
         <div id="out">
@@ -186,7 +187,7 @@
 </main>
 
 <section class="wrap sources" aria-labelledby="srcTitle">
-  <h2 id="srcTitle" class="h2" data-t="srcTitle">$ cat sources-and-assumptions.md</h2>
+  <h2 id="srcTitle" class="h2" data-t="srcTitle">Sources and assumptions</h2>
   <p class="disclaimer" data-t="disclaimer"></p>
   <ul id="assumptions"></ul>
   <h3 class="h3" data-t="srcList">Sources</h3>
@@ -197,6 +198,6 @@
   <p>MIT · <a id="lnkHome2" href="/tools/rate-calculator/">hmsk.life</a></p>
 </footer>
 
-<script type="module" src="app.js?v=1"></script>
+<script type="module" src="app.js?v=2"></script>
 </body>
 </html>

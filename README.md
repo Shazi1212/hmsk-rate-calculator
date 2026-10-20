@@ -46,7 +46,7 @@ Tests cover the 2026 income tax tariff against values computed by hand from § 3
 | `public/i18n.js` | English and German texts |
 | `public/app.js`, `index.html`, `app.css` | the UI |
 
-To self-host, set `LINK_BASE` in `public/config.js` if the top-strip links should point somewhere other than hmsk.life. Fonts (Martian Mono, Geist; SIL Open Font License) are in `public/assets/fonts/`.
+To self-host, set `LINK_BASE` in `public/config.js` if the top-strip links should point somewhere other than hmsk.life. Fonts (Newsreader, Public Sans; SIL Open Font License) are in `public/fonts/`; the shared hmsk.life look is in `public/letterpress.css`.
 
 ## Updating for a new year
 

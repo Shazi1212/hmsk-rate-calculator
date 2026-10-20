@@ -8,7 +8,7 @@ export const TEXT = {
     h1: 'What hourly rate do you need as a freelancer in Germany?',
     sub: 'Enter what you want to have left to live on. The calculator adds income tax, health and care insurance, pension, business costs and the hours you cannot bill, and gives you the minimum rate. Runs in your browser, nothing is sent anywhere.',
     // sections
-    sIncome: '--income', sTime: '--time', sCosts: '--costs', sHealth: '--health', sPension: '--pension', sTax: '--tax',
+    sIncome: 'Income', sTime: 'Time', sCosts: 'Costs', sHealth: 'Health insurance', sPension: 'Pension', sTax: 'Tax',
     target: 'Net income you want to live on', perMonth: 'per month', perYear: 'per year',
     targetHint: 'After tax, health insurance and pension. Rent, food, savings: your private money.',
     year: 'Year', state: 'Bundesland (for public holidays and church tax)',
@@ -40,7 +40,7 @@ export const TEXT = {
     tradeHint: 'Freiberufler: e.g. developers, designers, consultants, writers (§ 18 EStG). Others usually pay Gewerbesteuer.',
     hebesatz: 'Hebesatz of your municipality (%)', hebesatzHint: 'Berlin 410, Hamburg 470, München 490. Up to about 400 the § 35 EStG credit offsets it almost fully.',
     // result
-    rTitle: '$ rate --min',
+    rTitle: 'Your minimum rate',
     rateLabel: 'Minimum hourly rate (net, before VAT)',
     dayRate: 'Day rate', withVat: 'with 19 % VAT', billable: 'Billable hours per year',
     revenue: 'Revenue per year (net)',
@@ -61,7 +61,7 @@ export const TEXT = {
     share: 'Copy share link', shared: 'Link copied', print: 'Print', reset: 'Reset',
     errNoHours: 'There are no billable hours left. Reduce the days off or the non-billable share.',
     // sources
-    srcTitle: '$ cat sources-and-assumptions.md',
+    srcTitle: 'Sources and assumptions',
     disclaimer: 'Not tax advice. This is an estimate with 2026 figures. Check your numbers with a Steuerberater before you rely on them.',
     assumptions: [
       'Tax year 2026 figures are used for both 2026 and 2027. The 2027 income tax reform is a government draft, not law yet; the 2027 social insurance figures are not published yet.',
@@ -101,7 +101,7 @@ export const TEXT = {
     langSwitch: 'EN', langSwitchLabel: 'Show in English',
     h1: 'Welchen Stundensatz brauchen Sie als Freelancer?',
     sub: 'Geben Sie ein, was Ihnen zum Leben bleiben soll. Der Rechner schlägt Einkommensteuer, Kranken- und Pflegeversicherung, Rente, Betriebskosten und die Stunden, die Sie nicht abrechnen können, auf und zeigt den Mindest-Stundensatz. Läuft in Ihrem Browser, es wird nichts übertragen.',
-    sIncome: '--einkommen', sTime: '--zeit', sCosts: '--kosten', sHealth: '--krankenversicherung', sPension: '--rente', sTax: '--steuer',
+    sIncome: 'Einkommen', sTime: 'Zeit', sCosts: 'Kosten', sHealth: 'Krankenversicherung', sPension: 'Rente', sTax: 'Steuer',
     target: 'Netto zum Leben', perMonth: 'pro Monat', perYear: 'pro Jahr',
     targetHint: 'Nach Steuern, Krankenversicherung und Rente. Miete, Essen, Sparen: Ihr privates Geld.',
     year: 'Jahr', state: 'Bundesland (für Feiertage und Kirchensteuer)',
@@ -132,7 +132,7 @@ export const TEXT = {
     trade: 'Art der Tätigkeit', freelance: 'Freiberufler (keine Gewerbesteuer)', gewerbe: 'Gewerbetreibender (Gewerbesteuer)',
     tradeHint: 'Freiberufler: z. B. Entwicklung, Design, Beratung, Text (§ 18 EStG). Andere zahlen meist Gewerbesteuer.',
     hebesatz: 'Hebesatz Ihrer Gemeinde (%)', hebesatzHint: 'Berlin 410, Hamburg 470, München 490. Bis etwa 400 gleicht die Anrechnung nach § 35 EStG sie fast ganz aus.',
-    rTitle: '$ rate --min',
+    rTitle: 'Ihr Mindestsatz',
     rateLabel: 'Mindest-Stundensatz (netto, zzgl. USt)',
     dayRate: 'Tagessatz', withVat: 'mit 19 % USt', billable: 'Abrechenbare Stunden pro Jahr',
     revenue: 'Umsatz pro Jahr (netto)',
@@ -152,7 +152,7 @@ export const TEXT = {
     notify: 'Benachrichtigen, wenn die Werte für 2027 da sind',
     share: 'Link zum Teilen kopieren', shared: 'Link kopiert', print: 'Drucken', reset: 'Zurücksetzen',
     errNoHours: 'Es bleiben keine abrechenbaren Stunden. Verringern Sie die freien Tage oder den nicht abrechenbaren Anteil.',
-    srcTitle: '$ cat quellen-und-annahmen.md',
+    srcTitle: 'Quellen und Annahmen',
     disclaimer: 'Keine Steuerberatung. Eine Schätzung mit den Werten für 2026. Prüfen Sie Ihre Zahlen mit einer Steuerberatung, bevor Sie sich darauf verlassen.',
     assumptions: [
       'Für 2026 und 2027 werden die Steuer- und Sozialwerte von 2026 verwendet. Die Einkommensteuerreform 2027 ist ein Regierungsentwurf, noch kein Gesetz; die Sozialversicherungswerte 2027 sind noch nicht veröffentlicht.',
