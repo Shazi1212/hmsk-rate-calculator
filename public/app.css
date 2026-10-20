@@ -1,9 +1,10 @@
 /* Rate Calculator: hmsk.life Letterpress A1 (tokens, fonts and base in letterpress.css). */
 
 :root {
-  /* bar segments: distinct A1 hues, each ≥ 3:1 against the card, split by a 1px card gap */
-  --s-costs: #4A5562; --s-health: #A3262A; --s-pension: #2B6440; --s-tax: #7A4E00;
-  --s-nonBillable: #6B3F8F; --s-timeOff: #7B8592; --s-income: #1E4C8A;
+  /* bar segments: a neutral ink/blue ramp (status colours stay for status). Every segment is ≥ 3.8:1 against the
+     card, and segments are split by a 2px card gap, so each boundary meets 3:1; the legend names every segment. */
+  --s-costs: #151B24; --s-health: #6E7F95; --s-pension: #4A5562; --s-tax: #4B78B4;
+  --s-nonBillable: #263A57; --s-timeOff: #5B6B80; --s-income: #1E4C8A;
 }
 .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 16px; }
 .ps { display: none; }
@@ -93,7 +94,7 @@ form[data-ksk="1"] .no-ksk, form[data-ksk="1"] #healthGroup { display: none; }
 .h3 b { color: var(--accent); font-weight: 500; }
 .bar { display: flex; height: 28px; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--rule-strong); background: var(--card); }
 .bar span { display: block; height: 100%; min-width: 2px; }
-.bar span + span { box-shadow: inset 1px 0 0 var(--card); }
+.bar span + span { box-shadow: inset 2px 0 0 var(--card); }
 .legend { list-style: none; margin: var(--sm) 0 var(--md); padding: 0; display: grid; gap: 6px; }
 .legend li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto auto; gap: var(--xs); align-items: baseline; font-size: 15px; }
 .legend i { width: 12px; height: 12px; border-radius: 2px; align-self: center; }
@@ -121,6 +122,7 @@ details.year summary { cursor: pointer; font: 500 20px/1.4 var(--serif); color: 
 .tbl td { padding: 6px 0; border-top: 1px solid var(--rule); }
 .tbl td.n { text-align: right; font: 400 15px/1.4 var(--sans); font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: var(--sm); }
 .tbl td.m { color: var(--ink-2); }
+.tbl td:first-child { overflow-wrap: anywhere; hyphens: auto; } /* long German labels wrap instead of pushing the figures out at 320 px */
 .tbl tr.sub td { color: var(--ink-2); font-size: 14px; border-top: 0; padding-top: 0; }
 .tbl tr.tot td { font-weight: 600; color: var(--ink); border-top-color: var(--rule-strong); }
 .tbl tr.tot td.n { font-weight: 700; color: var(--accent); }
